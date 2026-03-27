@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavivu | Khám Phá Việt Nam</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar bg-dark text-light py-2 fs-7 d-none d-lg-block border-bottom border-light border-opacity-10">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="contact-info d-flex gap-4">
+                <span><i class="fa-solid fa-phone me-2 text-primary"></i> Hotline: 1909 1919 000</span>
+                <span><i class="fa-solid fa-envelope me-2 text-primary"></i> contact@lavivu.com</span>
+            </div>
+            <div class="social-login d-flex align-items-center gap-4">
+                <div class="social-icons d-flex gap-3">
+                    <a href="#" class="text-light text-decoration-none hover-primary"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-light text-decoration-none hover-primary"><i
+                            class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-light text-decoration-none hover-primary"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="login-links d-flex gap-3 border-start border-secondary ps-4">
+                    <a href="#" class="text-light text-decoration-none hover-primary"><i
+                            class="fa-solid fa-user me-1"></i> Đăng nhập</a>
+                    <a href="#" class="text-light text-decoration-none hover-primary"><i
+                            class="fa-solid fa-user-plus me-1"></i> Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2" href="#">
+                <img src="img/logo.png" alt="Lavivu Logo" class="navbar-logo"> Lavivu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto fw-medium">
+                    <li class="nav-item"><a class="nav-link active text-primary" href="#">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Trang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tours">Danh sách Tour</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#destinations">Điểm đến</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#activities">Tùy chọn Tour</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#articles">Bài viết</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#" class="text-light fs-5 hover-primary"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section position-relative d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 text-white z-1 text-shadow">
+                    <p class="fs-5 mb-1 fw-bold text-uppercase d-none d-md-block">Khám Phá Việt Nam</p>
+                    <h1 class="display-3 fw-bold mb-3 lh-sm">
+                        Đặc Biệt <br>
+                        Hành Trình Xuyên Việt
+                    </h1>
+                    <p class="fs-5 mb-5 opacity-75">Hà Nội, Vịnh Hạ Long, Sapa, Đà Nẵng, Hội An, Phú Quốc</p>
+                    <a href="#tours" class="btn btn-primary btn-lg px-5 py-3 rounded-0 fw-bold border-0 shadow-sm">KHÁM
+                        PHÁ NGAY</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <!-- Search / Filter Bar (Overlapping) -->
+    <section class="search-section position-relative z-2">
+        <div class="container">
+            <div class="search-box bg-dark p-4 shadow-lg rounded-2 border border-secondary border-opacity-25"
+                style="margin-top: -60px;">
+                <form class="row g-3 align-items-end">
+                    <div class="col-md-2">
+                        <label class="form-label text-light fs-7">Từ Khóa</label>
+                        <input type="text" class="form-control form-control-dark rounded-0 border-secondary"
+                            placeholder="&#xf002; Điểm đến, Tour..."
+                            style="font-family: 'Poppins', 'Font Awesome 6 Free'; font-weight: 500;">
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label text-light fs-7">Hoạt Động</label>
+                        <select class="form-select form-control-dark rounded-0 border-secondary text-muted">
+                            <option>Tất Cả</option>
+                            <option>Tour Thành Phố</option>
+                            <option>Hoạt Động Ngoài Trời</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label text-light fs-7">Điểm Đến</label>
+                        <select class="form-select form-control-dark rounded-0 border-secondary text-muted">
+                            <option>Tất Cả</option>
+                            <option>Miền Bắc</option>
+                            <option>Miền Trung</option>
+                            <option>Miền Nam</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label text-light fs-7">Thời Gian</label>
+                        <select class="form-select form-control-dark rounded-0 border-secondary text-muted">
+                            <option>Tất Cả</option>
+                            <option>1-3 Ngày</option>
+                            <option>4-7 Ngày</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="form-label text-light fs-7">Ngày Đi</label>
+                        <input type="date" class="form-control form-control-dark rounded-0 border-secondary text-muted">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary w-100 py-2 rounded-0 fw-bold border-0">TÌM
+                            KIẾM</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Banner -->
+    <div class="features-banner py-4 bg-primary text-white mt-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="fa-solid fa-earth-americas fs-2"></i>
+                    <div class="text-start">
+                        <span class="d-block fw-bold fs-7 mb-0">HƠN 100+ ĐIỂM ĐẾN</span>
+                        <small class="opacity-75 fs-8">Trải dài trên 63 tỉnh thành phố</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="fa-solid fa-tags fs-2"></i>
+                    <div class="text-start">
+                        <span class="d-block fw-bold fs-7 mb-0">CAM KẾT GIÁ TỐT NHẤT</span>
+                        <small class="opacity-75 fs-8">Hoàn tiền chênh lệch trong 48h</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="fa-solid fa-headset fs-2"></i>
+                    <div class="text-start">
+                        <span class="d-block fw-bold fs-7 mb-0">HỖ TRỢ TẬN TÌNH</span>
+                        <small class="opacity-75 fs-8">Sẵn sàng 24/7 qua điện thoại & online</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="fa-solid fa-bolt fs-2"></i>
+                    <div class="text-start">
+                        <span class="d-block fw-bold fs-7 mb-0">ĐẶT TOUR SIÊU TỐC</span>
+                        <small class="opacity-75 fs-8">Giao dịch an toàn, tiện lợi</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Tour Packages -->
+    <section id="tours" class="py-5 pb-5 position-relative">
+        <div class="tours-bg-blur"></div>
+        <div class="tours-bg-overlay"></div>
+        <div class="container py-4 position-relative z-1">
+            <div class="d-flex align-items-center mb-4">
+                <h2 class="fw-bold fs-3 text-white mb-0 me-3">Các Gói Tour Phổ Biến</h2>
+                <span class="text-white-50 fs-5 mb-0 me-3">/</span>
+                <a href="#" class="text-white text-decoration-none fw-medium fs-7 hover-primary">Xem tất cả tour</a>
+            </div>
+
+            <div class="position-relative slider-wrapper">
+                <button class="slider-btn slider-prev d-none d-md-flex" id="tour-prev"><i
+                        class="fa-solid fa-angle-left"></i></button>
+                <button class="slider-btn slider-next d-none d-md-flex" id="tour-next"><i
+                        class="fa-solid fa-angle-right"></i></button>
+
+                <div class="tour-slider d-flex gap-4 overflow-x-auto pb-3" id="tour-slider">
+                    <!-- Tour 1 -->
+                    <div class="tour-slide-item">
+                        <div class="card tour-card border-0 rounded-0 shadow-sm h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/IMG 2.jpg" class="card-img-top rounded-0" alt="Đà Nẵng">
+                            </div>
+                            <div class="card-body p-4 bg-white d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title fw-bold text-dark fs-5 mb-0">ĐÀ NẴNG – BÀ NÀ HILLS – HỘI AN
+                                    </h5>
+                                    <div class="text-end">
+                                        <span
+                                            class="text-muted text-decoration-line-through fs-8 d-block">5.500.000đ</span>
+                                        <span class="text-primary fw-bold fs-5">4.890.000đ</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted fs-7 mb-3"><i class="fa-regular fa-clock me-1"></i> 4 Ngày 3 Đêm
+                                </p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center border-top pt-3">
+                                    <div class="ratings text-warning fs-8">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                        <span class="text-muted ms-1">(12 Nhận xét)</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm rounded-0 fw-bold px-3 buy-btn">Đặt
+                                        Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour 2 -->
+                    <div class="tour-slide-item">
+                        <div class="card tour-card border-0 rounded-0 shadow-sm h-100">
+                            <div class="position-relative overflow-hidden">
+                                <div
+                                    class="badge bg-danger position-absolute top-0 start-0 m-3 z-2 rounded-0 py-2 px-3 fw-bold">
+                                    GIẢM 20%</div>
+                                <img src="img/IMG 3.jpg" class="card-img-top rounded-0" alt="Sapa">
+                            </div>
+                            <div class="card-body p-4 bg-white d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title fw-bold text-dark fs-5 mb-0 pe-2">SAPA - FANSIPAN - BẢN CÁT
+                                        CÁT
+                                    </h5>
+                                    <div class="text-end">
+                                        <span
+                                            class="text-muted text-decoration-line-through fs-8 d-block">4.200.000đ</span>
+                                        <span class="text-primary fw-bold fs-5">3.500.000đ</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted fs-7 mb-3"><i class="fa-regular fa-clock me-1"></i> 3 Ngày 2 Đêm
+                                </p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center border-top pt-3">
+                                    <div class="ratings text-warning fs-8">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star-half-stroke"></i>
+                                        <span class="text-muted ms-1">(15 Nhận xét)</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm rounded-0 fw-bold px-3 buy-btn">Đặt
+                                        Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour 3 -->
+                    <div class="tour-slide-item">
+                        <div class="card tour-card border-0 rounded-0 shadow-sm h-100">
+                            <div class="position-relative overflow-hidden">
+                                <div
+                                    class="badge bg-danger position-absolute top-0 start-0 m-3 z-2 rounded-0 py-2 px-3 fw-bold">
+                                    GIẢM 15%</div>
+                                <img src="img/IMG 4.webp" class="card-img-top rounded-0" alt="Phú Quốc">
+                            </div>
+                            <div class="card-body p-4 bg-white d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title fw-bold text-dark fs-5 mb-0">PHÚ QUỐC - VINWONDERS - SAFARI
+                                    </h5>
+                                    <div class="text-end">
+                                        <span
+                                            class="text-muted text-decoration-line-through fs-8 d-block">6.800.000đ</span>
+                                        <span class="text-primary fw-bold fs-5">5.780.000đ</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted fs-7 mb-3"><i class="fa-regular fa-clock me-1"></i> 4 Ngày 3 Đêm
+                                </p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center border-top pt-3">
+                                    <div class="ratings text-warning fs-8">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                        <span class="text-muted ms-1">(19 Nhận xét)</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm rounded-0 fw-bold px-3 buy-btn">Đặt
+                                        Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour 4 (Duplicated for slider) -->
+                    <div class="tour-slide-item">
+                        <div class="card tour-card border-0 rounded-0 shadow-sm h-100">
+                            <div class="position-relative overflow-hidden">
+                                <img src="img/IMG 5.png" class="card-img-top rounded-0" alt="Đà Lạt">
+                            </div>
+                            <div class="card-body p-4 bg-white d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title fw-bold text-dark fs-5 mb-0">ĐÀ LẠT - THÀNH PHỐ MÙA XUÂN</h5>
+                                    <div class="text-end">
+                                        <span
+                                            class="text-muted text-decoration-line-through fs-8 d-block">3.500.000đ</span>
+                                        <span class="text-primary fw-bold fs-5">2.990.000đ</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted fs-7 mb-3"><i class="fa-regular fa-clock me-1"></i> 3 Ngày 2 Đêm
+                                </p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center border-top pt-3">
+                                    <div class="ratings text-warning fs-8">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i>
+                                        <span class="text-muted ms-1">(24 Nhận xét)</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm rounded-0 fw-bold px-3 buy-btn">Đặt
+                                        Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour 5 (Duplicated for slider) -->
+                    <div class="tour-slide-item">
+                        <div class="card tour-card border-0 rounded-0 shadow-sm h-100">
+                            <div class="position-relative overflow-hidden">
+                                <div
+                                    class="badge bg-danger position-absolute top-0 start-0 m-3 z-2 rounded-0 py-2 px-3 fw-bold">
+                                    GIẢM 10%</div>
+                                <img src="img/IMG 6.jpg" class="card-img-top rounded-0" alt="Hội An">
+                            </div>
+                            <div class="card-body p-4 bg-white d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title fw-bold text-dark fs-5 mb-0">PHỐ CỔ HỘI AN - MỸ SƠN</h5>
+                                    <div class="text-end">
+                                        <span
+                                            class="text-muted text-decoration-line-through fs-8 d-block">2.800.000đ</span>
+                                        <span class="text-primary fw-bold fs-5">2.520.000đ</span>
+                                    </div>
+                                </div>
+                                <p class="text-muted fs-7 mb-3"><i class="fa-regular fa-clock me-1"></i> 2 Ngày 1 Đêm
+                                </p>
+                                <div class="mt-auto d-flex justify-content-between align-items-center border-top pt-3">
+                                    <div class="ratings text-warning fs-8">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                            class="fa-solid fa-star-half-stroke"></i>
+                                        <span class="text-muted ms-1">(8 Nhận xét)</span>
+                                    </div>
+                                    <button class="btn btn-outline-primary btn-sm rounded-0 fw-bold px-3 buy-btn">Đặt
+                                        Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations & Images -->
+    <section id="destinations" class="pt-5 bg-white">
+        <div class="container mb-4">
+            <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="fa-solid fa-location-dot text-primary fs-4"></i>
+                <h2 class="fw-bold fs-3 text-dark mb-0">Điểm Đến Phổ Biến</h2>
+                <a href="#" class="text-primary text-decoration-none fw-medium fs-7 ms-auto">Xem tất cả điểm đến <i
+                        class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+            <p class="text-muted fs-7 col-md-6 mb-0">Khám phá những điểm đến tuyệt vời trên khắp mọi miền đất nước với
+                nền ẩm thực phong phú, văn hóa đa dạng và cảnh quan thiên nhiên hùng vĩ đáng kinh ngạc.</p>
+        </div>
+        <div class="container-fluid px-0">
+            <div class="row g-0 dest-grid">
+                <div class="col filter-item">
+                    <div class="dest-card position-relative overflow-hidden">
+                        <img src="img/VINH HA LONG.webp" alt="Vịnh Hạ Long" class="w-100 img-fluid">
+                        <div class="dest-overlay d-flex justify-content-between align-items-end p-3 w-100">
+                            <span class="text-white fw-bold"><i class="fa-solid fa-map-pin me-2 text-primary"></i> Vịnh
+                                Hạ Long</span>
+                            <span class="text-white fs-7">38 Tour</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col filter-item">
+                    <div class="dest-card position-relative overflow-hidden">
+                        <img src="img/IMG 5.png" alt="Sapa" class="w-100 img-fluid">
+                        <div class="dest-overlay d-flex justify-content-between align-items-end p-3 w-100">
+                            <span class="text-white fw-bold"><i class="fa-solid fa-map-pin me-2 text-primary"></i>
+                                Sapa</span>
+                            <span class="text-white fs-7">52 Tour</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col filter-item">
+                    <div class="dest-card position-relative overflow-hidden">
+                        <img src="img/IMG 6.jpg" alt="Hội An" class="w-100 img-fluid">
+                        <div class="dest-overlay d-flex justify-content-between align-items-end p-3 w-100">
+                            <span class="text-white fw-bold"><i class="fa-solid fa-map-pin me-2 text-primary"></i> Hội
+                                An</span>
+                            <span class="text-white fs-7">45 Tour</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col filter-item">
+                    <div class="dest-card position-relative overflow-hidden">
+                        <img src="img/IMG 7.webp" alt="Đà Lạt" class="w-100 img-fluid">
+                        <div class="dest-overlay d-flex justify-content-between align-items-end p-3 w-100">
+                            <span class="text-white fw-bold"><i class="fa-solid fa-map-pin me-2 text-primary"></i> Đà
+                                Lạt</span>
+                            <span class="text-white fs-7">26 Tour</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col filter-item">
+                    <div class="dest-card position-relative overflow-hidden">
+                        <img src="img/IMG 8.jpg" alt="Phú Quốc" class="w-100 img-fluid">
+                        <div class="dest-overlay d-flex justify-content-between align-items-end p-3 w-100">
+                            <span class="text-white fw-bold"><i class="fa-solid fa-map-pin me-2 text-primary"></i> Phú
+                                Quốc</span>
+                            <span class="text-white fs-7">12 Tour</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity & Newsletter Split -->
+    <section id="activities" class="py-5 bg-white border-bottom">
+        <div class="container my-4">
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h3 class="fw-bold fs-4 mb-4 text-dark"><i class="fa-solid fa-list-check text-primary me-2"></i>
+                        Duyệt Tour Theo Hoạt Động</h3>
+                    <div class="row g-3 fs-7">
+                        <div class="col-6">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="#" class="text-primary text-decoration-none hover-dark">Kỳ
+                                        Nghỉ Trải Nghiệm</a></li>
+                                <li class="mb-2"><a href="#" class="text-primary text-decoration-none hover-dark">Tour
+                                        Văn Hóa Lịch Sử</a></li>
+                                <li class="mb-2"><a href="#" class="text-primary text-decoration-none hover-dark">Trải
+                                        Nghiệm Gia Đình</a></li>
+                                <li><a href="#" class="text-primary text-decoration-none hover-dark">Tour Lễ Hội Theo
+                                        Mùa</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><a href="#" class="text-primary text-decoration-none hover-dark">Khám
+                                        Phá Thành Phố</a></li>
+                                <li class="mb-2"><a href="#" class="text-primary text-decoration-none hover-dark">Tour
+                                        Nghỉ Dưỡng Cao Cấp</a></li>
+                                <li class="mb-2"><a href="#" class="text-primary text-decoration-none hover-dark">Chăm
+                                        Sóc Sức Khỏe</a></li>
+                                <li><a href="#" class="text-primary text-decoration-none hover-dark">Khám Phá Thiên
+                                        Nhiên Biển Đảo</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 border-start ps-md-5">
+                    <h3 class="fw-bold fs-4 mb-3 text-dark"><i class="fa-regular fa-envelope text-primary me-2"></i>
+                        Đăng Ký Bản Tin</h3>
+                    <p class="text-muted fs-7 mb-4">Nhận thông tin cập nhật mới nhất và các khuyến mãi đặc biệt</p>
+                    <form id="email-form" class="d-flex gap-2">
+                        <input type="email" id="email-input" class="form-control rounded-0 bg-light border-0 px-4"
+                            placeholder="Địa chỉ Email của bạn..." required>
+                        <button type="submit" class="btn btn-primary rounded-0 px-4 fw-bold">ĐĂNG KÝ</button>
+                    </form>
+                    <div id="subscribe-alert" class="alert alert-success mt-3 d-none mb-0 fs-7 rounded-0" role="alert">
+                        Thành công! Bạn đã đăng ký nhận bản tin.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discount Parallax Banner -->
+    <section class="discount-banner position-relative d-flex align-items-center justify-content-end py-5 text-shadow">
+        <div class="container position-relative z-2 text-end text-white pe-lg-5">
+            <h2 class="display-4 fw-bold mb-3">Giảm Giá <span class="text-warning">10-30%</span></h2>
+            <p class="fs-6 opacity-75 mb-4 ms-auto col-md-6 col-lg-5 text-start me-0">Cơ hội tuyệt vời để khám phá những
+                vùng đất mới với mức giá ưu đãi nhất. Đừng bỏ lỡ các gói du lịch được thiết kế đặc biệt độc quyền của
+                chúng tôi.</p>
+            <a href="#tours" class="btn btn-light text-primary fw-bold rounded-pill px-5 py-3 shadow">XEM CÁC TOUR
+                KHUYẾN MÃI</a>
+        </div>
+    </section>
+
+    <!-- Travel Articles -->
+    <section id="articles" class="py-5 bg-white pb-5">
+        <div class="container py-4">
+            <div class="d-flex align-items-center gap-2 mb-4">
+                <i class="fa-solid fa-pen-nib text-primary fs-4"></i>
+                <h2 class="fw-bold fs-3 text-dark mb-0">Cẩm Nang Du Lịch</h2>
+                <a href="#" class="text-primary text-decoration-none fw-medium fs-7 ms-auto">Đọc tất cả bài viết <i
+                        class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="article-card overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&q=80"
+                            alt="Article 1" class="img-fluid w-100">
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="article-card overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1499591934245-40b55745b905?w=400&q=80"
+                            alt="Article 3" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="article-card overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&q=80"
+                            alt="Article 4" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="article-card overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&q=80"
+                            alt="Article 4" class="img-fluid w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Book With Us Banner -->
+    <div class="bg-primary pt-5 pb-4 text-white">
+        <div class="container">
+            <div class="row text-center g-4 align-items-center">
+                <div class="col-md-3 text-md-start">
+                    <h4 class="fw-bold mb-0">Tại Sao Lại Chọn Chúng Tôi?</h4>
+                </div>
+                <div class="col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="fa-solid fa-thumbs-up fs-2 text-warning"></i>
+                    <div class="text-start">
+                        <span class="d-block fw-bold fs-7 mb-0 text-white">10,000+ KHÁCH HÀNG</span>
+                        <small class="opacity-75 fs-8 text-white">Đã tin tưởng đồng hành</small>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="fa-solid fa-award fs-2 text-warning"></i>
+                    <div class="text-start">
+                        <span class="d-block fw-bold fs-7 mb-0 text-white">ĐẠT NHIỀU GIẢI THƯỞNG</span>
+                        <small class="opacity-75 fs-8 text-white">Thương hiệu uy tín năm</small>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-items-center justify-content-center gap-3">
+                    <i class="fa-solid fa-lock fs-2 text-warning"></i>
+                    <div class="text-start">
+                        <span class="d-block fw-bold fs-7 mb-0 text-white">THANH TOÁN AN TOÀN</span>
+                        <small class="opacity-75 fs-8 text-white">Bảo mật hệ thống 100%</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-3">
+        <div class="container pt-3">
+            <div class="row g-4 mb-4 pb-4 border-bottom border-light border-opacity-10">
+                <div class="col-lg-4 pe-lg-5">
+                    <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2 mb-3 text-white" href="#">
+                        <img src="img/logo.png" alt="Lavivu Logo" class="navbar-logo"> LAVIVU
+                    </a>
+                    <p class="text-muted fs-7 mb-4">Khám phá những điểm đến du lịch đầy cảm hứng. Cùng dấn bước và tận
+                        hưởng những chuyến hành trình trong mơ đầy kỳ thú!</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="fa-solid fa-award text-light fs-2"></i>
+                        <i class="fa-solid fa-certificate text-light fs-2"></i>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-4 fs-6">ĐIỂM ĐẾN NỔI BẬT NĂM NAY</h5>
+                    <div class="row g-2 w-75">
+                        <div class="col-4"><img
+                                src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=150&q=50"
+                                class="img-fluid rounded-1 opacity-75 hover-opacity-100" alt=""></div>
+                        <div class="col-4"><img
+                                src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?w=150&q=50"
+                                class="img-fluid rounded-1 opacity-75 hover-opacity-100" alt=""></div>
+                        <div class="col-4"><img
+                                src="https://images.unsplash.com/photo-1516483638261-f40889eba186?w=150&q=50"
+                                class="img-fluid rounded-1 opacity-75 hover-opacity-100" alt=""></div>
+                        <div class="col-4"><img
+                                src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=150&q=50"
+                                class="img-fluid rounded-1 opacity-75 hover-opacity-100" alt=""></div>
+                        <div class="col-4"><img
+                                src="https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?w=150&q=50"
+                                class="img-fluid rounded-1 opacity-75 hover-opacity-100" alt=""></div>
+                        <div class="col-4"><img
+                                src="https://images.unsplash.com/photo-1619546952816-1f20d0fbaab7?w=150&q=50"
+                                class="img-fluid rounded-1 opacity-75 hover-opacity-100" alt=""></div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-4 fs-6">THÔNG TIN LIÊN HỆ</h5>
+                    <ul class="list-unstyled text-white fs-7">
+                        <li class="mb-3"><i class="fa-solid fa-location-dot me-2 text-primary"></i> 279 Nguyễn Tri
+                            Phương
+                            Phường Diên Hồng TP. Hồ Chí Minh</li>
+                        <li class="mb-3"><i class="fa-solid fa-phone me-2 text-primary"></i> Hotline: 1909 1919 000</li>
+                        <li class="mb-4"><i class="fa-solid fa-envelope me-2 text-primary"></i>
+                            contact@lavivu.com</li>
+                    </ul>
+                    <div class="social-icons d-flex gap-3">
+                        <a href="#" class="text-white text-decoration-none hover-primary"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="text-white text-decoration-none hover-primary"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="text-white text-decoration-none hover-primary"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white text-decoration-none hover-primary"><i
+                                class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap pt-2">
+                <p class="text-muted fs-8 mb-0">BẢN QUYỀN 2026 LAVIVU. BẢO LƯU MỌI QUYỀN.</p>
+                <button class="btn btn-outline-secondary btn-sm rounded-0 fs-8" data-bs-toggle="modal"
+                    data-bs-target="#adminModal"><i class="fa-solid fa-chart-line me-1"></i> Bảng Điều Khiển Quản
+                    Trị</button>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Admin Modal (Legacy Marketing Dashboard) -->
+    <div class="modal fade" id="adminModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-secondary">
+                <div class="modal-header border-secondary border-opacity-25 py-3">
+                    <h5 class="modal-title fw-bold text-primary"><i class="fa-solid fa-gears me-2"></i> Bảng Quản Trị
+                        Phân Tích Marketing</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 p-md-5 bg-black">
+                    <div class="row g-4 text-center justify-content-center">
+                        <div class="col-6 col-md-3">
+                            <div class="card bg-dark border-primary stat-card h-100 rounded-2">
+                                <div class="card-body">
+                                    <h6 class="card-title text-muted text-uppercase fs-8 fw-bold">Tổng Số Lượt Truy Cập
+                                    </h6>
+                                    <h2 class="card-text text-white fw-bold mt-2 mb-0" id="stat-visitors">0</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card bg-dark border-success stat-card h-100 rounded-2">
+                                <div class="card-body">
+                                    <h6 class="card-title text-muted text-uppercase fs-8 fw-bold">Tổng Số Lượt Click
+                                    </h6>
+                                    <h2 class="card-text text-white fw-bold mt-2 mb-0" id="stat-clicks">0</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card bg-dark border-info stat-card h-100 rounded-2">
+                                <div class="card-body">
+                                    <h6 class="card-title text-muted text-uppercase fs-8 fw-bold">Email Thu Thập Được
+                                    </h6>
+                                    <h2 class="card-text text-white fw-bold mt-2 mb-0" id="stat-emails">0</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card bg-dark border-warning stat-card h-100 rounded-2">
+                                <div class="card-body">
+                                    <h6 class="card-title text-muted text-uppercase fs-8 fw-bold">Tỷ Lệ Chuyển Đổi CTR
+                                    </h6>
+                                    <h2 class="card-text text-warning fw-bold mt-2 mb-0" id="stat-ctr">0%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5 mb-3">
+                        <button id="btn-simulate" class="btn btn-outline-info me-3 px-4 py-2 rounded-0 fw-bold"><i
+                                class="fa-solid fa-users me-2"></i> Mô Phỏng Lưu Lượng</button>
+                        <button id="btn-calculate" class="btn btn-warning px-4 py-2 rounded-0 fw-bold shadow-sm"
+                            data-bs-toggle="modal" data-bs-target="#ctrModal"><i
+                                class="fa-solid fa-file-invoice me-2"></i> Tính Toán CTR Cuối Cùng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTR Modal Report (Child Modal) -->
+    <div class="modal fade" id="ctrModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-warning"><i class="fa-solid fa-bullseye me-2"></i> Báo Cáo CTR
+                        Cuối Cùng</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 bg-black">
+                    <ul class="list-group list-group-flush rounded border border-secondary border-opacity-25">
+                        <li
+                            class="list-group-item bg-black text-white px-3 py-3 d-flex justify-content-between align-items-center">
+                            Lượt truy cập (Impressions) <span class="badge bg-secondary fs-6"
+                                id="modal-visitors">0</span>
+                        </li>
+                        <li
+                            class="list-group-item bg-black text-white px-3 py-3 d-flex justify-content-between align-items-center">
+                            Lượt click nút Đặt tour <span class="badge bg-success fs-6" id="modal-clicks">0</span>
+                        </li>
+                        <li
+                            class="list-group-item bg-black text-white px-3 py-3 d-flex justify-content-between align-items-center">
+                            Tổng Email Thu Thập <span class="badge bg-info fs-6" id="modal-emails">0</span>
+                        </li>
+                        <li
+                            class="list-group-item bg-dark text-warning fw-bold px-3 py-3 d-flex justify-content-between align-items-center border-top border-warning">
+                            Tỷ Tệ Click-Through Cuối Cùng <span class="badge bg-warning text-dark fs-5"
+                                id="modal-ctr">0%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Thêm type="module" để có thể dùng Firebase ES6 Modules -->
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

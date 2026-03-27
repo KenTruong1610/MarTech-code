@@ -1,0 +1,311 @@
+/* --- Modern Travel Theme CSS --- */
+
+:root {
+    --primary: #0284c7;
+    /* Premium Ocean Blue */
+    --primary-hover: #0369a1;
+    --dark-bg: #0f172a;
+    /* Premium Dark Slate 900 */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* Typography Utils */
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+.fs-8 {
+    font-size: 0.75rem;
+}
+
+.hover-primary {
+    transition: color 0.3s ease;
+}
+
+.hover-primary:hover {
+    color: var(--primary) !important;
+}
+
+.hover-dark {
+    transition: color 0.3s ease;
+}
+
+.hover-dark:hover {
+    color: #0a0a0a !important;
+}
+
+/* Top Bar & Navbar */
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.top-bar {
+    font-size: 0.8rem;
+}
+
+.navbar {
+    background-color: rgba(30, 32, 34, 0.95) !important;
+    backdrop-filter: blur(5px);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 80vh;
+    min-height: 600px;
+    background: url('img/IMG 1.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Form Styles */
+.form-control-dark {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.form-control-dark:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: none;
+}
+
+.form-select.form-control-dark {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Tour Cards */
+.tour-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.tour-card img {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tour-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Destination Grid */
+.dest-grid .col {
+    padding: 0;
+}
+
+.dest-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.dest-card:hover img {
+    transform: scale(1.1);
+}
+
+.dest-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    z-index: 2;
+}
+
+/* Discount Banner */
+.discount-banner {
+    height: 400px;
+    background: url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?w=1920&q=80') center 20%/cover fixed no-repeat;
+    position: relative;
+}
+
+.discount-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.7));
+}
+
+/* Article Cards */
+.article-card img {
+    height: 180px;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.article-card:hover img {
+    opacity: 0.8;
+}
+
+/* Footer Image Utils */
+.hover-opacity-100 {
+    transition: opacity 0.3s ease;
+}
+
+.hover-opacity-100:hover {
+    opacity: 1 !important;
+}
+
+/* Admin Dashboard Overrides (Dark Theme) */
+#adminModal .modal-content {
+    background-color: #1a1a1a !important;
+}
+
+.stat-card {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a) !important;
+    border-width: 2px !important;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: scale(1.02);
+}
+
+/* --- Tours Slider & Blured Background --- */
+.tours-bg-blur {
+    position: absolute;
+    inset: 0;
+    background: url('img/BG 1.webp') center/cover no-repeat;
+    filter: blur(8px);
+    z-index: 0;
+}
+
+.tours-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 1, 0.5);
+    /* Premium Dark Slate with opacity */
+    z-index: 1;
+}
+
+.tour-slider {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.tour-slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+.tour-slide-item {
+    scroll-snap-align: start;
+    flex: 0 0 calc(33.333% - 1.1rem);
+    min-width: 320px;
+}
+
+@media (max-width: 991px) {
+    .tour-slide-item {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 767px) {
+    .tour-slide-item {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: var(--primary-hover);
+}
+
+.slider-prev {
+    left: -20px;
+}
+
+.slider-next {
+    right: -20px;
+}
