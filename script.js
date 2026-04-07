@@ -123,7 +123,7 @@ btnSimulate.addEventListener('click', () => {
 // --- 5. ENGINE: THEO DÕI CLICKS & MICRO-CONVERSIONS ---
 // Lặp qua tất cả nút Buy Now để gắn sự kiện theo dõi hành vi
 buyButtons.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
         // Tăng đếm số lần click của cả site
         totalClicks++;
 
@@ -132,19 +132,38 @@ buyButtons.forEach((btn, index) => {
 
         console.log(`[Sales] Sản phẩm ID_${index + 1} được click. Tổng clicks toàn site: ${totalClicks}`);
 
-        // UI Feedback: Báo user đã click thành công
-        const originalText = btn.innerText;
-        btn.innerText = "Booked!";
-        btn.classList.replace('btn-outline-primary', 'btn-success');
-
-        // Reset lại nút sau 1.5 giây
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.classList.replace('btn-success', 'btn-outline-primary');
-        }, 1500);
-
         // Update realtime dashboard
         updateDashboard();
+
+        // Extract tour info for checkout
+        const cardBody = e.target.closest('.card-body');
+        let title = "Tour";
+        let price = "0";
+        if (cardBody) {
+            const titleEl = cardBody.querySelector('.card-title');
+            if (titleEl) title = titleEl.innerText.trim();
+            const priceEl = cardBody.querySelector('.text-primary.fw-bold.fs-5');
+            if (priceEl) {
+                // Extract numbers from "4.890.000đ" -> "4890000"
+                price = priceEl.innerText.replace(/[^\d]/g, '');
+            }
+        }
+
+        // UI Feedback: Báo user chuẩn bị chuyển trang
+        const originalText = btn.innerText;
+        btn.innerText = "Đang chuyển trang...";
+        btn.classList.replace('btn-outline-primary', 'btn-success');
+
+        // Redirect to checkout page after 500ms
+        setTimeout(() => {
+            window.location.href = `checkout.html?title=${encodeURIComponent(title)}&price=${price}`;
+            
+            // Xóa hiệu ứng nếu người dùng back lại trang
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.replace('btn-success', 'btn-outline-primary');
+            }, 100);
+        }, 500);
     });
 });
 

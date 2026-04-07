@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán | Lavivu</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light">
+
+    <!-- Navbar Minimal -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2" href="index.html">
+                <img src="img/logo.png" alt="Lavivu Logo" class="navbar-logo" style="height:40px;"> Lavivu
+            </a>
+            <a href="index.html" class="text-light text-decoration-none hover-primary ms-auto"><i class="fa-solid fa-arrow-left me-1"></i> Quay lại</a>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <div class="container py-5">
+        <div class="row g-4">
+            <!-- Left Column: Booking Form -->
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-sm rounded-3">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="fw-bold text-dark mb-4"><i class="fa-solid fa-clipboard-user text-primary me-2"></i> Thông Tin Đặt Tour</h3>
+                        <form id="checkout-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fs-7 fw-medium text-muted">Họ và tên *</label>
+                                    <input type="text" class="form-control rounded-1" placeholder="Vd: Nguyễn Văn A" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fs-7 fw-medium text-muted">Số điện thoại *</label>
+                                    <input type="tel" class="form-control rounded-1" placeholder="Vd: 0901234567" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fs-7 fw-medium text-muted">Email *</label>
+                                    <input type="email" class="form-control rounded-1" placeholder="example@email.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fs-7 fw-medium text-muted">Số lượng vé *</label>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-secondary" type="button" id="btn-minus"><i class="fa-solid fa-minus"></i></button>
+                                        <input type="number" class="form-control text-center fw-bold" id="ticket-qty" value="1" min="1" max="20" required readonly>
+                                        <button class="btn btn-outline-secondary" type="button" id="btn-plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fs-7 fw-medium text-muted">Ghi chú thêm</label>
+                                    <textarea class="form-control rounded-1" rows="3" placeholder="Yêu cầu đặc biệt..."></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm rounded-3 position-sticky" style="top: 100px;">
+                    <div class="card-body p-4 p-md-5 bg-white">
+                        <h4 class="fw-bold text-dark mb-4">Chi Tiết Thanh Toán</h4>
+                        
+                        <div class="mb-3 pb-3 border-bottom">
+                            <h6 class="fw-bold text-dark mb-1" id="tour-name">Đang tải tên tour...</h6>
+                            <p class="text-muted fs-7 mb-0"><i class="fa-solid fa-calendar-days text-primary me-1"></i> Lịch trình linh hoạt</p>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Giá vé (x<span id="summary-qty">1</span>)</span>
+                            <span class="fw-medium text-dark" id="tour-price">0đ</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                            <span class="text-muted">Phí dịch vụ</span>
+                            <span class="fw-medium text-success">Miễn phí</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="fw-bold fs-5 text-dark">Tổng cộng</span>
+                            <span class="fw-bold fs-4 text-primary" id="total-price">0đ</span>
+                        </div>
+
+                        <button form="checkout-form" type="submit" class="btn btn-primary w-100 py-3 rounded-2 fw-bold fs-6 shadow-sm btn-submit">XÁC NHẬN ĐẶT TOUR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to format number to VND format string
+            const formatCurrency = (number) => {
+                return new Intl.NumberFormat('vi-VN').format(number) + 'đ';
+            };
+
+            // Parse URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const tourTitle = urlParams.get('title') || 'Tour Khám Phá Việt Nam';
+            const basePriceStr = urlParams.get('price') || '0';
+            const basePrice = parseInt(basePriceStr, 10);
+
+            // DOM Elements
+            const nameEl = document.getElementById('tour-name');
+            const priceEl = document.getElementById('tour-price');
+            const totalEl = document.getElementById('total-price');
+            const qtyInput = document.getElementById('ticket-qty');
+            const summaryQty = document.getElementById('summary-qty');
+            const btnMinus = document.getElementById('btn-minus');
+            const btnPlus = document.getElementById('btn-plus');
+            const checkoutForm = document.getElementById('checkout-form');
+
+            // Set Initial Values
+            nameEl.innerText = tourTitle;
+            priceEl.innerText = formatCurrency(basePrice);
+            
+            // Function to update totals
+            const updateTotals = () => {
+                const qty = parseInt(qtyInput.value, 10);
+                summaryQty.innerText = qty;
+                const total = basePrice * qty;
+                totalEl.innerText = formatCurrency(total);
+            };
+
+            updateTotals();
+
+            // Quantity buttons logic
+            btnMinus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value, 10);
+                if (currentVal > 1) {
+                    qtyInput.value = currentVal - 1;
+                    updateTotals();
+                }
+            });
+
+            btnPlus.addEventListener('click', () => {
+                let currentVal = parseInt(qtyInput.value, 10);
+                if(currentVal < parseInt(qtyInput.max)) {
+                    qtyInput.value = currentVal + 1;
+                    updateTotals();
+                }
+            });
+
+            // Form Submit Logic
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btnSubmit = document.querySelector('.btn-submit');
+                const originalText = btnSubmit.innerText;
+                
+                btnSubmit.innerText = "Đang xử lý...";
+                btnSubmit.classList.add('disabled');
+
+                setTimeout(() => {
+                    alert('Cảm ơn bạn! Đặt tour thành công. Chúng tôi sẽ liên hệ trong thời gian sớm nhất.');
+                    window.location.href = 'index.html';
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>
